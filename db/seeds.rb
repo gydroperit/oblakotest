@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'yaml'
-good = YAML.load_file("/home/qsion/app/db/seeds.yml")
+good = YAML.load_file("db/seeds.yml")
 good["projects"].each do |x|
 	project = Project.create(title: x["title"])
  	x["todos"].each do |y| 

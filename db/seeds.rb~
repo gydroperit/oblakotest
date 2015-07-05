@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'yaml'
 good = YAML.load_file("/home/qsion/app/db/seeds.yml")
-#puts good
 good["projects"].each do |x|
 	project = Project.create(title: x["title"])
  	x["todos"].each do |y| 
@@ -15,6 +14,4 @@ good["projects"].each do |x|
 	project.todos << todo
 	end
 end
-#good["projects"].each {|x| x["todos"].each {|y| Todo.create(text: y["text"], isCompleted: y["isCompleted"],project_id: )}}
-#good["projects"].each {|x| x["todos"].each {|y| Todo.create(text: y["text"], isCompleted: y["isCompleted"])}}
-#for i in 0..good["projects"].count
+
