@@ -14,5 +14,12 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function() {
-alert("I am an alert box!");
 });
+
+$(document).on("click", "#hide_todo", function(){
+   $("#MainForm").hide();
+});
+$(document).on("click", "#add_todo", function(){
+   $("#MainForm").show();
+});
+
