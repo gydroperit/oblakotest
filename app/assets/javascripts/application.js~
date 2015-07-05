@@ -15,9 +15,7 @@
 //= require_tree .
 $(document).ready(function() {
 });
-$("#add_todo").click(function(){
-   $("#MainForm").show();
-});
+
 $(document).on("click", "#hide_todo", function(){
    $("#MainForm").hide();
 });

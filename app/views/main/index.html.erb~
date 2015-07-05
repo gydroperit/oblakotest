@@ -16,7 +16,7 @@
 <%= form_tag '/create', id: "mainform" do %>
   	<%= text_field_tag(:form,"Название задачи")%>
 	<%= select_tag(:project,  options_from_collection_for_select(Project.all, :id, :title))%>
-	<%= link_to "Отмена","#",id:"hide_todosubmt_lnk" %>
+	<%= link_to "Отмена","#",id:"hide_todo" %>
 	<%= link_to "ОК","#",id:"submt_lnk" %>
 <% end %>
 </div>
