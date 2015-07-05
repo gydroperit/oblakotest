@@ -1,0 +1,24 @@
+<h1>Задачи</h1>
+
+<%= link_to image_tag("addTodoIcon.png"),"#",id:"add_todo" %>
+<% Project.all.each do |project| %>
+	<h2><%= project.title %> </h2>
+	<ul>
+	<% Todo.where(project_id: project.id).each do |todo| %>
+	<li><%= todo.text %></li>
+	<%end%>
+	</ul>
+<%end%>
+
+
+<div id="MainForm" hidden>
+<h2>Новая задача</h2>
+<%= form_tag '/create', id: "mainform" do %>
+  	<%= text_field_tag(:form,"Название задачи")%>
+	<%= select_tag(:project,  options_from_collection_for_select(Project.all, :id, :title))%>
+	<%= link_to "Отмена","#",id:"hide_todosubmt_lnk" %>
+	<%= link_to "ОК","#",id:"submt_lnk" %>
+<% end %>
+</div>
+
+
