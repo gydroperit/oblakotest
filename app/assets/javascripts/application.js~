@@ -10,7 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+$(document).on("click", "#submt_lnk", function(){
+   $("#MainForm").submit();
+});
+$("#add_todo").click(function(){
+	alert("I am an alert box!");
+   $("#MainForm").show();
+});
+$(document).on("click", "#hide_todo", function(){
+   $("#MainForm").hide();
+});
+$(document).ready(function() {
+alert("I am an alert box!");
+});

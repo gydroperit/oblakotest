@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: app_production
-  username: app
+  host: localhost
+  username: pguser
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
