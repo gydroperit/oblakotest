@@ -5,7 +5,7 @@
 <% Project.all.each do |project| %>
 <div class = "col-xs-12 col-md-6 col-lg-4">
 	<div class = "pblock">
-	 	<h2><%= project.title %> </h2>
+	 	<h2><%= (project.title).mb_chars.upcase %> </h2>
 	 	<ul>
 	 	  <% Todo.unscoped.order("id DESC").where(project_id: project.id).each do |todo| %>
 
@@ -14,7 +14,9 @@
 	 	  
 	 	  	<%= form_tag '/main/' + todo.id.to_s, method: "PUT", id: "update" + todo.id.to_s do %>
 	 	  		<label>
-	 	  			<input type="checkbox" name=<%= todo.id.to_s %> <%=todo.isCompleted ? "checked" : "" %>><p><%= todo.text %></p>
+	 	  			<input type="checkbox" name=<%= todo.id.to_s %> <%=todo.isCompleted ? "checked" : "" %>>
+	 	  			<p style= <%=todo.isCompleted ? "text-decoration:line-through" : "none" %>><%= todo.text %>
+	 	  			</p>
 	 	  			</label>
 	 	  			<%end%>
 	 	   
