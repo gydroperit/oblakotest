@@ -1,6 +1,5 @@
-<h1>Задачи</h1>
-
-<%= link_to image_tag("addTodoIcon.png"),"#",id:"add_todo" %>
+	<div id= "header"><h1>Задачи</h1>
+<%= link_to image_tag("addTodoIcon.png"),"#",id:"add_todo" %></div>
 <% Project.all.each do |project| %>
 	<h2><%= project.title %> </h2>
 	<ul>

@@ -1,24 +1,44 @@
-<h1>Задачи</h1>
-
-<%= link_to image_tag("addTodoIcon.png"),"#",id:"add_todo" %>
+<div id= "header"><h1>Задачи<%= link_to image_tag("addTodoIcon.png"),"#",id:"add_todo" %></h1>
+</div>
+<div id = "content">
+<div class = 'row'>
 <% Project.all.each do |project| %>
-	<h2><%= project.title %> </h2>
-	<ul>
-	<% Todo.where(project_id: project.id).each do |todo| %>
-	<li><%= todo.text %></li>
-	<%end%>
-	</ul>
+<div class = "col-xs-12 col-md-6 col-lg-4">
+	<div class = "pblock">
+	 	<h2><%= project.title %> </h2>
+	 	<ul>
+	 	  <% Todo.unscoped.order("id DESC").where(project_id: project.id).each do |todo| %>
+
+	 	  <li>
+				
+	 	  
+	 	  	<%= form_tag '/main/' + todo.id.to_s, method: "PUT", id: "update" + todo.id.to_s do %>
+	 	  		<label>
+	 	  			<input type="checkbox" name=<%= todo.id.to_s %> <%=todo.isCompleted ? "checked" : "" %>><p><%= todo.text %></p>
+	 	  			</label>
+	 	  			<%end%>
+	 	   
+	 	  </li>
+	  	 
+	 	  <%end%>
+		</ul>
+	</div>
+	</div>
 <%end%>
-
-
-<div id="MainForm" hidden>
+</div>
+</div>
+<div id = "mask" style='display: none'>
+<div id = "mask2">
+<div id="MainForm">
 <h2>Новая задача</h2>
-<%= form_tag '/create', id: "mainform" do %>
+	<%= form_tag '/main', id: "mainform" do %>
   	<%= text_field_tag(:form,"Название задачи")%>
-	<%= select_tag(:project,  options_from_collection_for_select(Project.all, :id, :title))%>
+	<%= select_tag(:slct,  options_from_collection_for_select(Project.all, :id, :title))%>
 	<%= link_to "Отмена","#",id:"hide_todo" %>
 	<%= link_to "ОК","#",id:"submt_lnk" %>
 <% end %>
+</div>
+</div>
 </div>
 
 

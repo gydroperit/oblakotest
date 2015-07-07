@@ -14,12 +14,26 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function() {
+	 $('input').on('ifClicked', function(event){
+ 	alert("");
+});
+	 $('input').iCheck({
+    checkboxClass: 'icheckbox_square-blue'});
+	 $("#slct").select2({minimumResultsForSearch: Infinity}); 
+
+
+
+
 });
 
 $(document).on("click", "#hide_todo", function(){
-   $("#MainForm").hide();
+   $("#mask").hide();
 });
 $(document).on("click", "#add_todo", function(){
-   $("#MainForm").show();
+   $("#mask").show();
+});
+
+$(document).on("click", "#submt_lnk", function(){
+   $("#mainform").submit();
 });
 
