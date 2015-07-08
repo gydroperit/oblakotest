@@ -4,12 +4,8 @@
 @font-face {
     font-family: OpenSans-Semibold; 
     src: url(font_path('OpenSans-Semibold.ttf')); 
-}
-@font-face {
     font-family: OpenSans-Regular; 
     src: url(font_path('OpenSans-Regular.ttf'); 
-}
-@font-face {
     font-family: OpenSans-Light; 
     src: url(font_path('OpenSans-Light.ttf'); 
 }
@@ -22,7 +18,7 @@ padding:0px;
     color:white;
 	height:80px;
     text-align:center;
-    font-family: OpenSans-Regular; 
+    font-family: OpenSans-Semibold; 
     background-color:#3AAFDA;
 }
 #header h1 {
