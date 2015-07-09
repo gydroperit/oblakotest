@@ -2,13 +2,18 @@
 // All this logic will automatically be available in application.js.
 
 $(document).ready(function() {
+
+
+
+
 	 $('input').on('ifToggled', function(event){
  	var x =  "#update" + this.name;
+ 
  	$(x).submit();
-
 });
 	 $('input').iCheck({
     checkboxClass: 'icheckbox_square-blue'});
+
 	 $("#slct").select2({minimumResultsForSearch: Infinity}); 
 
 });

@@ -8,10 +8,7 @@
 	 	<h2><%= (project.title).mb_chars.upcase %> </h2>
 	 	<ul>
 	 	  <% Todo.unscoped.order("id DESC").where(project_id: project.id).each do |todo| %>
-
 	 	  <li>
-				
-	 	  
 	 	  	<%= form_tag '/main/' + todo.id.to_s, method: "PUT", id: "update" + todo.id.to_s do %>
 	 	  		<label>
 	 	  			<input type="checkbox" name=<%= todo.id.to_s %> <%=todo.isCompleted ? "checked" : "" %>>
@@ -19,9 +16,7 @@
 	 	  			</p>
 	 	  			</label>
 	 	  			<%end%>
-	 	   
 	 	  </li>
-	  	 
 	 	  <%end%>
 		</ul>
 	</div>
@@ -32,12 +27,14 @@
 <div id = "mask" style='display: none'>
 <div id = "mask2">
 <div id="MainForm">
-<h2>Новая задача</h2>
+<h2>НОВАЯ ЗАДАЧА</h2>
+  	<div id = "dummy">
 	<%= form_tag '/main', id: "mainform" do %>
-  	<%= text_field_tag(:form,"Название задачи")%>
+  	<%= text_field_tag(:form,"Название задачи...")%>
 	<%= select_tag(:slct,  options_from_collection_for_select(Project.all, :id, :title))%>
 	<%= link_to "Отмена","#",id:"hide_todo" %>
 	<%= link_to "ОК","#",id:"submt_lnk" %>
+	</div>
 <% end %>
 </div>
 </div>

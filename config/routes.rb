@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'main/index'
-   resources :main
-
+   #resources :main
+   post '/main', to: 'main#create'
+   put '/main/:id', to: 'main#update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
