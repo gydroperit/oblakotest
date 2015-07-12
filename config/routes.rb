@@ -3,7 +3,8 @@ Rails.application.routes.draw do
    #resources :main
    post '/main', to: 'main#create'
    put '/main/:id', to: 'main#update'
-   get 'todo/index', to: 'main#index'
+   get 'todo/index', to: 'main#todo'
+   get 'project/index', to: 'main#project'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
