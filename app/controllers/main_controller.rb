@@ -1,8 +1,16 @@
 class MainController < ApplicationController
   def index
+    @Todos = Project.joins(:todos)
+    respond_to do |format|
+
+  format.html # show.html.erb
+  format.json { render json: @Todos }
+
+ end
   end
   def create
   	Todo.create(text: params[:form], project_id: params[:slct])
+
   	redirect_to :back
   end
   def update
