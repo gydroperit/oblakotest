@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   protect_from_forgery with: :index
+  def index
     @Todos = Project.joins(:todos)
     respond_to do |format|
 
