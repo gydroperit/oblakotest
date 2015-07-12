@@ -1,14 +1,15 @@
 class MainController < ApplicationController
   protect_from_forgery with: :null_session
   def index
-    @Todos = Todo.joins(:projects)
+    @Project = Project
+
     respond_to do |format|
 
   format.html # show.html.erb
-  format.json { render :json => @Todos }
+  format.json { render :json => @Project  }
 
  end
- puts @Todos
+
   end
   def create
   	Todo.create(text: params[:form], project_id: params[:slct])
