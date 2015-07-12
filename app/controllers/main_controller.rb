@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  def index
+  protect_from_forgery with: :index
     @Todos = Project.joins(:todos)
     respond_to do |format|
 
@@ -7,6 +7,7 @@ class MainController < ApplicationController
   format.json { render json: @Todos }
 
  end
+ puts @Todos
   end
   def create
   	Todo.create(text: params[:form], project_id: params[:slct])
