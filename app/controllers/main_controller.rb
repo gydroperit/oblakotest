@@ -1,7 +1,7 @@
 class MainController < ApplicationController
   protect_from_forgery with: :null_session
   def index
-    @Project = Project
+    @Project = Project.all
 
     respond_to do |format|
 
