@@ -6,7 +6,7 @@ class MainController < ApplicationController
     respond_to do |format|
 
   format.html # show.html.erb
-  format.json { render :json => @Project  }
+  format.json { render :json => @Project }
 
  end
 
